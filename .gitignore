@@ -1,0 +1,66 @@
+# ── Environment & Secrets ─────────────────────────────────────
+.env
+*.env
+.env.local
+.env.production
+
+# ── Python ───────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+
+# ── Virtual Environments ──────────────────────────────────────
+venv/
+env/
+ENV/
+.venv/
+
+# ── Database ─────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+agentcare.db
+test_agentcare.db
+
+# ── Uploads ───────────────────────────────────────────────────
+uploads/patient_*/
+!uploads/.gitkeep
+
+# ── ChromaDB ─────────────────────────────────────────────────
+chroma_db/
+!chroma_db/.gitkeep
+
+# ── IDE ───────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── OS ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Logs ─────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Testing ───────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── Structure file (temp) ─────────────────────────────────────
+structure.txt
