@@ -25,10 +25,9 @@ email-validator==2.2.0
 python-multipart==0.0.19
 aiofiles==24.1.0
 
-# ── Frontend ─────────────────────────────────────────────────
+# ── Frontend (Streamlit) ──────────────────────────────────────
 streamlit==1.41.1
 requests==2.32.3
-Pillow==11.0.0
 
 # ── Utilities ────────────────────────────────────────────────
 httpx==0.28.1
@@ -38,7 +37,3 @@ plotly==5.24.1
 
 # ── Voice ────────────────────────────────────────────────────
 streamlit-mic-recorder==0.0.8
-
-# ── RAG (Vector Store) ───────────────────────────────────────
-chromadb==0.5.23
-sentence-transformers==3.3.1
