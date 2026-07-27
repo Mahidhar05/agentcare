@@ -1575,7 +1575,7 @@ def render_login_page():
             'display: flex; align-items: center; gap: 8px;">'
             '👤 PATIENTS'
             '<span style="background: rgba(94, 234, 212, 0.2); color: #5eead4;'
-            'padding: 2px 8px; border-radius: 10px; font-size: 10px;">3 accounts · Password: Patient@123</span>'
+            'padding: 2px 8px; border-radius: 10px; font-size: 10px; text-transform: none;">3 accounts · Password: Patient@123</span>'
             '</div>'
             '<table style="width: 100%; color: #f1f5f9; font-size: 13px; border-collapse: separate; border-spacing: 0;">'
             '<tr style="border-bottom: 1px solid rgba(94, 234, 212, 0.15);">'
@@ -1657,8 +1657,7 @@ def render_login_page():
             'display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">'
             '👨‍⚕️ DOCTORS'
             '<span style="background: rgba(147, 197, 253, 0.2); color: #93c5fd;'
-            'padding: 2px 8px; border-radius: 10px; font-size: 10px;">14 accounts · Password: Doctor@123</span>'
-            '</div>'
+            'padding: 2px 8px; border-radius: 10px; font-size: 10px; text-transform: none;">14 accounts · Password: Doctor@123</span>'
             
             '<table style="width: 100%; color: #f1f5f9; font-size: 12px; border-collapse: separate; border-spacing: 0;">'
             '<tr style="border-bottom: 1px solid rgba(147, 197, 253, 0.15);"><td style="padding: 6px 12px; width: 40%;"><b>Dr. Aisha Sharma</b></td><td style="padding: 6px 12px;"><code style="color: #93c5fd; background: rgba(15,23,42,0.6); padding: 2px 6px; border-radius: 4px; font-size: 10px;">aisha.sharma@agentcare.com</code></td></tr>'
