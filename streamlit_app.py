@@ -1659,7 +1659,7 @@ def render_login_page():
             '<span style="background: rgba(147, 197, 253, 0.2); color: #93c5fd;'
             'padding: 2px 8px; border-radius: 10px; font-size: 10px; text-transform: none;">14 accounts · Password: Doctor@123</span>'
             
-            '<table style="width: 100%; color: #f1f5f9; font-size: 12px; border-collapse: separate; border-spacing: 0;">'
+            '<table style="width: 100%; color: #f1f5f9; font-size: 12px; border-collapse: separate; border-spacing: 0; text-transform: none;">'
             '<tr style="border-bottom: 1px solid rgba(147, 197, 253, 0.15);"><td style="padding: 6px 12px; width: 40%;"><b>Dr. Aisha Sharma</b></td><td style="padding: 6px 12px;"><code style="color: #93c5fd; background: rgba(15,23,42,0.6); padding: 2px 6px; border-radius: 4px; font-size: 10px;">aisha.sharma@agentcare.com</code></td></tr>'
             '<tr style="border-bottom: 1px solid rgba(147, 197, 253, 0.15);"><td style="padding: 6px 12px;"><b>Dr. Rajan Mehta</b></td><td style="padding: 6px 12px;"><code style="color: #93c5fd; background: rgba(15,23,42,0.6); padding: 2px 6px; border-radius: 4px; font-size: 10px;">rajan.mehta@agentcare.com</code></td></tr>'
             '<tr style="border-bottom: 1px solid rgba(147, 197, 253, 0.15);"><td style="padding: 6px 12px;"><b>Dr. Priya Nair</b></td><td style="padding: 6px 12px;"><code style="color: #93c5fd; background: rgba(15,23,42,0.6); padding: 2px 6px; border-radius: 4px; font-size: 10px;">priya.nair@agentcare.com</code></td></tr>'
