@@ -38,38 +38,40 @@ An **8-agent AI system** that orchestrates a patient's non-clinical healthcare j
 
 ## 🏗️ System Architecture
 
-────────────────────────────────────────────────────────────────┐
-│ STREAMLIT FRONTEND │
-│ (Patient Portal · Doctor Portal · Staff/Admin Portal) │
-│ Deployed on Streamlit Cloud │
-└─────────────────────────────┬───────────────────────────────────┘
-│ HTTP + JWT
-┌─────────────────────────────▼───────────────────────────────────┐
-│ FASTAPI BACKEND (Render) │
-│ ┌───────────────────────────────────────────────────────────┐ │
-│ │ COORDINATOR AGENT (Orchestrator) │ │
-│ │ Intent Detection · Context Memory · Workflow Routing │ │
-│ └────┬───┬───┬───┬───┬───┬───┬───────────────────────────────┘ │
-│ ▼ ▼ ▼ ▼ ▼ ▼ ▼ │
-│ ┌───┬───┬───┬───┬───┬───┬───┐ │
-│ │Saf│Rou│App│Doc│Fol│Que│Kno│ ← 7 Specialized Agents │
-│ │ety│tin│oin│ume│low│ry │wle│ │
-│ │ │g │t │nt │up │ │dge│ │
-│ └─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┘ │
-│ │ │ │ │ │ │ │ │
-│ ┌───▼───▼───▼───▼───▼───▼───▼─────────────────────────────┐ │
-│ │ 7 REAL TOOLS (Business Logic) │ │
-│ │ patient · department · appointment · document │ │
-│ │ reminder · escalation · audit │ │
-│ └────────────────────┬──────────────────────────────────────┘ │
-│ ▼ │
-│ ┌───────────────────────────────────────────────────────────┐ │
-│ │ SQLite (Persistent SQL DB) │ ChromaDB (RAG Vectors) │ │
-│ │ Users, Appointments, │ Hospital policies, │ │
-│ │ Documents, Workflows, │ procedures, dept info │ │
-│ │ Escalations, Audit Log │ │ │
-│ └───────────────────────────────────────────────────────────┘ │
-└────────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph Frontend["🎨 STREAMLIT FRONTEND (Streamlit Cloud)"]
+        P[Patient Portal]
+        D[Doctor Portal]
+        S[Staff/Admin Portal]
+    end
+    
+    Frontend -->|HTTP + JWT| Backend
+    
+    subgraph Backend["⚡ FASTAPI BACKEND (Render)"]
+        Coord[🎯 COORDINATOR AGENT<br/>Intent Detection · Context Memory · Workflow Routing]
+        
+        Coord --> A1[🛡️ Safety Agent]
+        Coord --> A2[🗺️ Routing Agent]
+        Coord --> A3[📅 Appointment Agent]
+        Coord --> A4[📄 Document Agent]
+        Coord --> A5[🔔 Follow-up Agent]
+        Coord --> A6[💬 Query Agent]
+        Coord --> A7[📚 Knowledge Agent]
+        
+        A1 & A2 & A3 & A4 & A5 & A6 & A7 --> Tools[🛠️ 7 REAL TOOLS<br/>patient · department · appointment · document<br/>reminder · escalation · audit]
+    end
+    
+    Tools --> DB[(🗄️ SQLite<br/>Users, Appointments,<br/>Documents, Workflows,<br/>Escalations, Audit Log)]
+    
+    Tools --> RAG[(🧠 ChromaDB<br/>Hospital policies,<br/>procedures, dept info)]
+    
+    style Coord fill:#0d9488,color:#fff
+    style Frontend fill:#1e293b,color:#fff
+    style Backend fill:#0f172a,color:#fff
+    style DB fill:#334155,color:#fff
+    style RAG fill:#334155,color:#fff
+```
 
 
 ---
