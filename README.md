@@ -1,327 +1,132 @@
-# 🏥 AgentCare — Agentic AI for Patient Administration and Care Coordination
+# 🏥 AgentCare — Agentic AI for Patient Administration & Care Coordination
 
-An **agentic healthcare administration system** that coordinates a patient's non-clinical journey — from registration and department routing to appointment booking, document collection, reminders, and follow-up — while keeping medical decisions under human supervision.
+> **Built for the AgentCare Build Challenge 2026 by Krish Naik**
 
-> ⚠️ **Important:** This system is for **administrative tasks only**. It does NOT diagnose, prescribe, or replace clinical judgment.
-
----
-
-## ✨ Features
-
-- 🤖 **6 distinct AI agents** with unique prompts and responsibilities
-- 🔐 **JWT authentication** with backend-enforced role-based access control
-- 📄 **Document management** with SHA256 duplicate detection and LLM classification
-- 📅 **Appointment lifecycle** — book, reschedule, cancel with double-booking prevention
-- 🔔 **Automatic reminders** (24h, 2h before) and follow-up scheduling
-- ⚠️ **Safety guardrails** blocking diagnosis/prescription language
-- 🚨 **Human escalation** workflow for uncertain or sensitive requests
-- 📊 **Full audit logging** on every action
-- 🎨 **Streamlit UI** for both patients and staff/admin
+An **8-agent AI system** that orchestrates a patient's non-clinical healthcare journey — from registration and appointment booking to document management, reminders, and follow-up — while keeping all medical decisions under human supervision.
 
 ---
 
-## 🏗️ Architecture
+## 🌐 Live Deployment
 
+| Resource | URL |
+|---|---|
+| 🎯 **Live App (Try Now!)** | **[https://agentcare-mahidhar.streamlit.app](https://agentcare-mahidhar.streamlit.app)** |
+| 🔧 **API Backend + Swagger Docs** | [https://agentcare-api.onrender.com/docs](https://agentcare-api.onrender.com/docs) |
+| 📦 **GitHub Repository** | [https://github.com/Mahidhar05/agentcare](https://github.com/Mahidhar05/agentcare) |
+| 💚 **API Health Check** | [https://agentcare-api.onrender.com/health](https://agentcare-api.onrender.com/health) |
 
-## 🙏 Third-Party Components & Attribution
-
-This project uses the following open-source libraries and services:
-
-### Frameworks & Libraries
-- **[FastAPI](https://fastapi.tiangolo.com/)** — Python web framework for the REST API
-- **[SQLAlchemy](https://www.sqlalchemy.org/)** — SQL toolkit and ORM
-- **[Streamlit](https://streamlit.io/)** — Frontend UI framework
-- **[Pydantic](https://docs.pydantic.dev/)** — Data validation
-- **[Uvicorn](https://www.uvicorn.org/)** — ASGI server
-- **[Passlib](https://passlib.readthedocs.io/)** — Password hashing (bcrypt)
-- **[python-jose](https://github.com/mpdavis/python-jose)** — JWT authentication
-- **[python-dotenv](https://github.com/theskumar/python-dotenv)** — Environment configuration
-- **[pytest](https://docs.pytest.org/)** — Testing framework
-
-### External Services
-- **[Groq API](https://groq.com/)** — LLM inference (llama-3.1-8b-instant model)
-- **[Gmail SMTP](https://support.google.com/mail/)** — Email delivery (for real notifications)
-
-### Design Inspiration
-- Color palette inspired by modern healthcare apps (Apollo, Practo, Zocdoc)
-- Chat UI patterns inspired by ChatGPT, Claude
-- Font: [Inter](https://fonts.google.com/specimen/Inter) by Rasmus Andersson
-
-### AI Assistance Acknowledgment
-- Development assisted by AI pair programming
-- All architecture, agent design, business logic, and integration is original work
-- LLM prompts, database schema, and workflow orchestration are custom-built
-
-### License Compliance
-All third-party libraries used are open source under permissive licenses 
-(MIT, Apache 2.0, BSD). No proprietary code was reused.
-
-# Just open your README.md and paste the attribution section I gave above
-# at the end of the file, before the disclaimer.
-
-
-## 🙏 Third-Party Components & Attribution
-
-This project uses the following open-source libraries and services:
-
-### Frameworks & Libraries
-- **[FastAPI](https://fastapi.tiangolo.com/)** — Python web framework for the REST API
-- **[SQLAlchemy](https://www.sqlalchemy.org/)** — SQL toolkit and ORM
-- **[Streamlit](https://streamlit.io/)** — Frontend UI framework
-- **[Pydantic](https://docs.pydantic.dev/)** — Data validation
-- **[Uvicorn](https://www.uvicorn.org/)** — ASGI server
-- **[Passlib](https://passlib.readthedocs.io/)** — Password hashing (bcrypt)
-- **[python-jose](https://github.com/mpdavis/python-jose)** — JWT authentication
-- **[python-dotenv](https://github.com/theskumar/python-dotenv)** — Environment configuration
-- **[pytest](https://docs.pytest.org/)** — Testing framework
-- **[requests](https://requests.readthedocs.io/)** — HTTP client library
-
-### External Services
-- **[Groq API](https://groq.com/)** — LLM inference (llama-3.1-8b-instant model)
-- **[Gmail SMTP](https://support.google.com/mail/)** — Email delivery service
-
-### Design Inspiration
-- Color palette inspired by modern healthcare apps (Apollo, Practo, Zocdoc)
-- Chat UI patterns inspired by ChatGPT, Claude
-- Font: [Inter](https://fonts.google.com/specimen/Inter) by Rasmus Andersson
-
-### AI Assistance Acknowledgment
-- Development was assisted by AI pair programming for boilerplate generation
-- All architecture decisions, agent design, business logic, workflow orchestration, 
-  database schema, and integration are original work
-- Custom system prompts for each of the 7 AI agents
-- Safety enforcement logic and healthcare compliance rules are hand-crafted
-- All third# 🚀 Excellent! Let's Build All 8 Features — In Order of Impact
-
-You have 6 days. Let me plan this smartly.
+> ⏱️ **First load may take 30-60 seconds** — Render's free tier "sleeps" after inactivity. Please be patient!
 
 ---
 
-## 📅 Recommended Build Order & Time
+## ✨ Feature Highlights
 
-| # | Feature | Time | Priority | Why This Order |
-|---|---|---|---|---|
-| 1 | **Comprehensive Tests** | 1.5h | 🔴 First | Ensures nothing breaks as we add features |
-| 2 | **Doctor Portal** | 1.5h | 🔴 High | New role = shows complete system |
-| 3 | **Analytics Dashboard** | 1h | 🟡 Medium | Visual wow factor |
-| 4 | **Search & Filter** | 45m | 🟡 Medium | Better UX |
-| 5 | **Multi-Language Support** | 1.5h | 🟢 Bonus | Hackathon PDF mentioned this |
-| 6 | **Conversational Memory** | 2h | 🟢 Wow | True ChatGPT feel |
-| 7 | **Voice Input** | 1h | 🟢 Cool | Unique feature |
-| 8 | **Cloud Deployment** | 1h | 🔴 LAST | Deploy final complete version |
-
-**Total: ~10 hours** spread over 6 days = **~1.5 hours per day** 🎯
-
----
-
-## 🎯 Why Tests First?
-
-Right now if we add features, we might accidentally break existing ones. Tests catch regressions early. Plus, it's a **major hackathon scoring point**.
+| Feature | Status | Notes |
+|---|---|---|
+| 🤖 **8 Distinct AI Agents** | ✅ | Required: 3 minimum — we have **267% over** |
+| 🎤 **Voice Input** | ✅ Bonus | Groq Whisper-Large-v3 transcription |
+| 🌐 **4 Languages** | ✅ Bonus | English, Hindi, Tamil, Telugu |
+| 📚 **RAG Knowledge Base** | ✅ Bonus | ChromaDB + sentence-transformers |
+| 📊 **Analytics Dashboard** | ✅ Bonus | 7 Plotly charts for staff insights |
+| 👨‍⚕️ **Doctor Portal** | ✅ Bonus | Schedule, patients, clinical notes |
+| 🔍 **Global Search + Filters** | ✅ Bonus | Search across patients, doctors, departments |
+| 🛡️ **Safety Guard + Escalation** | ✅ Required | Blocks diagnosis, escalates to human |
+| 🔐 **JWT Auth + RBAC** | ✅ Required | Backend-enforced role separation |
+| 📧 **Email Notifications + Audit Trail** | ✅ Required | Every action logged |
 
 ---
 
-## 🚀 LET'S START WITH #1: COMPREHENSIVE TESTS
+## 🏗️ System Architecture
 
-Let me build a professional pytest suite covering all critical paths.
+────────────────────────────────────────────────────────────────┐
+│ STREAMLIT FRONTEND │
+│ (Patient Portal · Doctor Portal · Staff/Admin Portal) │
+│ Deployed on Streamlit Cloud │
+└─────────────────────────────┬───────────────────────────────────┘
+│ HTTP + JWT
+┌─────────────────────────────▼───────────────────────────────────┐
+│ FASTAPI BACKEND (Render) │
+│ ┌───────────────────────────────────────────────────────────┐ │
+│ │ COORDINATOR AGENT (Orchestrator) │ │
+│ │ Intent Detection · Context Memory · Workflow Routing │ │
+│ └────┬───┬───┬───┬───┬───┬───┬───────────────────────────────┘ │
+│ ▼ ▼ ▼ ▼ ▼ ▼ ▼ │
+│ ┌───┬───┬───┬───┬───┬───┬───┐ │
+│ │Saf│Rou│App│Doc│Fol│Que│Kno│ ← 7 Specialized Agents │
+│ │ety│tin│oin│ume│low│ry │wle│ │
+│ │ │g │t │nt │up │ │dge│ │
+│ └─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┘ │
+│ │ │ │ │ │ │ │ │
+│ ┌───▼───▼───▼───▼───▼───▼───▼─────────────────────────────┐ │
+│ │ 7 REAL TOOLS (Business Logic) │ │
+│ │ patient · department · appointment · document │ │
+│ │ reminder · escalation · audit │ │
+│ └────────────────────┬──────────────────────────────────────┘ │
+│ ▼ │
+│ ┌───────────────────────────────────────────────────────────┐ │
+│ │ SQLite (Persistent SQL DB) │ ChromaDB (RAG Vectors) │ │
+│ │ Users, Appointments, │ Hospital policies, │ │
+│ │ Documents, Workflows, │ procedures, dept info │ │
+│ │ Escalations, Audit Log │ │ │
+│ └───────────────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────────┘
+
 
 ---
 
-## 📁 STEP 1.1: Create Test Infrastructure
+## 🤖 The 8 AI Agents
 
-**Create these test files** in your `tests/` folder:
+Each agent has a **unique system prompt**, **specific responsibilities**, and **clearly separated tool access**.
+
+| # | Agent | Purpose | Key Files |
+|---|-------|---------|-----------|
+| 1 | **Coordinator** | Master orchestrator — detects intent, routes to specialists, combines outputs, tracks workflow state | `agents/coordinator.py` |
+| 2 | **Safety Guard** | Blocks diagnosis/prescription requests, detects emergencies, creates human escalations | `agents/safety_agent.py` |
+| 3 | **Department Routing** | Classifies request → maps to correct hospital department, handles uncertainty | `agents/routing_agent.py` |
+| 4 | **Appointment** | Retrieves slots, checks conflicts, books/reschedules/cancels appointments, persists state | `agents/appointment_agent.py` |
+| 5 | **Document** | Ingests files, classifies type, computes SHA-256 checksum for dedup, detects missing docs | `agents/document_agent.py` |
+| 6 | **Follow-up** | Creates reminders (24h, 1h before), schedules post-visit tasks, triggers notifications | `agents/followup_agent.py` |
+| 7 | **Query (Read-Only)** | Handles conversational queries (list appointments/slots/doctors/docs) — NEVER modifies state | `agents/query_agent.py` |
+| 8 | **Knowledge (RAG)** | Answers hospital policy/procedure questions using ChromaDB vector search | `agents/knowledge_agent.py` |
 
 ---
 
-### File 1: `tests/conftest.py`
+## 🛠️ Technology Stack
 
-Create this file **at `tests/conftest.py`**:
+| Layer | Technology |
+|---|---|
+| **Backend** | FastAPI 0.111, SQLAlchemy 2.0, Pydantic 2.7 |
+| **Frontend** | Streamlit 1.35, Plotly 5.22, streamlit-mic-recorder |
+| **LLM** | Groq API — `llama-3.3-70b-versatile` |
+| **Voice** | Groq Whisper-Large-v3 (real-time transcription) |
+| **RAG** | ChromaDB 0.4 + sentence-transformers (`all-MiniLM-L6-v2`) |
+| **Database** | SQLite (persistent file-based SQL DB) |
+| **Auth** | JWT (python-jose) + bcrypt password hashing |
+| **Testing** | pytest 8.2 |
+| **Deployment** | Render (backend) + Streamlit Cloud (frontend) |
 
-```python
-# tests/conftest.py
-"""
-Shared pytest fixtures for AgentCare tests.
-Uses a separate test database to avoid polluting production data.
-"""
+---
 
-import os
-import pytest
-import tempfile
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from fastapi.testclient import TestClient
+## 🚀 Quick Start (Local Setup)
 
-# Set test mode BEFORE importing app
-os.environ["DATABASE_URL"] = "sqlite:///./test_agentcare.db"
+### Prerequisites
+- Python 3.11+
+- Groq API key ([get free here](https://console.groq.com/keys))
 
-from database.models import Base
-from database.connection import get_db
-from main import app
+### 1. Clone & Install
 
+```bash
+git clone https://github.com/Mahidhar05/agentcare.git
+cd agentcare
 
-# ─── Test Database Setup ─────────────────────────────────────
-TEST_DB_URL = "sqlite:///./test_agentcare.db"
-test_engine = create_engine(
-    TEST_DB_URL, connect_args={"check_same_thread": False}
-)
-TestSessionLocal = sessionmaker(
-    autocommit=False, autoflush=False, bind=test_engine
-)
+# Create virtual environment
+python -m venv venv
 
+# Activate
+# Windows:
+venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
 
-@pytest.fixture(scope="session", autouse=True)
-def setup_test_database():
-    """Create test DB tables once per test session."""
-    Base.metadata.create_all(bind=test_engine)
-    
-    # Seed test data
-    from database.seed import (
-        DEPARTMENTS, DOCTORS, STAFF_USERS, PATIENT_USERS,
-        generate_slots_for_doctor
-    )
-    from database.models import (
-        User, PatientProfile, Department, Doctor,
-        UserRole, AppointmentSlot, SlotStatus
-    )
-    from auth.password import hash_password
-    from datetime import datetime
-    
-    db = TestSessionLocal()
-    
-    # Seed if empty
-    if not db.query(User).first():
-        # Departments
-        dept_map = {}
-        for d in DEPARTMENTS:
-            dept = Department(name=d["name"], description=d["description"], active=True)
-            db.add(dept)
-            db.flush()
-            dept_map[d["name"]] = dept.id
-        
-        # Doctors + slots
-        for doc_data in DOCTORS:
-            dept_id = dept_map.get(doc_data["dept"])
-            if not dept_id:
-                continue
-            doctor = Doctor(
-                department_id=dept_id,
-                name=doc_data["name"],
-                specialization=doc_data["specialization"],
-                qualification=doc_data["qualification"],
-                active=True,
-            )
-            db.add(doctor)
-            db.flush()
-            slots = generate_slots_for_doctor(doctor.id, days_ahead=7)
-            for slot in slots:
-                db.add(slot)
-        
-        # Staff users
-        for su in STAFF_USERS:
-            user = User(
-                name=su["name"], email=su["email"],
-                password_hash=hash_password(su["password"]),
-                role=su["role"], is_active=True,
-                created_at=datetime.utcnow(),
-            )
-            db.add(user)
-        
-        # Patient users
-        for pu in PATIENT_USERS:
-            user = User(
-                name=pu["name"], email=pu["email"],
-                password_hash=hash_password(pu["password"]),
-                role=UserRole.patient, is_active=True,
-                created_at=datetime.utcnow(),
-            )
-            db.add(user)
-            db.flush()
-            profile = PatientProfile(
-                user_id=user.id,
-                phone=pu["phone"], age=pu["age"],
-                gender=pu["gender"],
-                preferred_language="English",
-                created_at=datetime.utcnow(),
-                updated_at=datetime.utcnow(),
-            )
-            db.add(profile)
-        
-        db.commit()
-    
-    db.close()
-    
-    yield
-    
-    # Cleanup: delete test DB after all tests
-    try:
-        os.remove("./test_agentcare.db")
-    except Exception:
-        pass
-
-
-@pytest.fixture
-def db_session():
-    """Fresh DB session for each test."""
-    db = TestSessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-
-@pytest.fixture
-def client():
-    """FastAPI test client."""
-    def override_get_db():
-        db = TestSessionLocal()
-        try:
-            yield db
-        finally:
-            db.close()
-    
-    app.dependency_overrides[get_db] = override_get_db
-    with TestClient(app) as c:
-        yield c
-    app.dependency_overrides.clear()
-
-
-@pytest.fixture
-def patient_token(client):
-    """Returns auth token for patient user."""
-    response = client.post(
-        "/api/auth/login",
-        data={"username": "john.doe@example.com", "password": "Patient@123"},
-    )
-    return response.json()["access_token"]
-
-
-@pytest.fixture
-def staff_token(client):
-    """Returns auth token for staff user."""
-    response = client.post(
-        "/api/auth/login",
-        data={"username": "staff1@agentcare.com", "password": "Staff@123"},
-    )
-    return response.json()["access_token"]
-
-
-@pytest.fixture
-def admin_token(client):
-    """Returns auth token for admin user."""
-    response = client.post(
-        "/api/auth/login",
-        data={"username": "admin@agentcare.com", "password": "Admin@123"},
-    )
-    return response.json()["access_token"]
-
-
-## 🧪 Test Coverage
-
-This project has **73 automated tests** covering:
-- All 7 AI agents (safety, routing, query, coordinator, appointment, document, follow-up)
-- All API endpoints (auth, patient, staff, appointments, workflow)  
-- Role-based access control enforcement
-- Doctor lookup by name (partial/full/case-insensitive)
-- Safety guardrails (blocks diagnosis, prescription, dosage requests)
-- Emergency detection
-
-Run: `pytest tests/ -v`    
+# Install dependencies
+pip install -r requirements.txt
