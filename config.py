@@ -20,7 +20,7 @@ class Settings:
 
     # ── LLM (Groq) ───────────────────────────────────────
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
-    LLM_MODEL: str = os.getenv("LLM_MODEL", "llama3-70b-8192")
+    LLM_MODEL: str = os.getenv("LLM_MODEL", "llama-3.3-70b-versatile")
     LLM_TEMPERATURE: float = float(os.getenv("LLM_TEMPERATURE", "0.1"))
     LLM_MAX_TOKENS: int = int(os.getenv("LLM_MAX_TOKENS", "2048"))
 

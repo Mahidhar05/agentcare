@@ -1720,11 +1720,11 @@ def _perform_login(email: str, password: str):
             st.session_state["user_id"] = data["user_id"]
             st.session_state["name"] = data["name"]
             st.session_state["email"] = data["email"]
-            status.update(label="✅ Success! Redirecting...", state="complete")
+            status.update(label="Success! Redirecting...", state="complete")
             time.sleep(0.4)
             st.rerun()
         else:
-            status.update(label="❌ Login failed", state="error")
+            status.update(label="Login failed", state="error")
             st.error(f"{result['data'].get('detail', 'Login failed')}")
 
 # ═══════════════════════════════════════════════════════════════
