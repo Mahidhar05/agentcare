@@ -1708,23 +1708,23 @@ def render_login_page():
 def _perform_login(email: str, password: str):
     """Login with clear visual feedback."""
     # Use st.status for a nicer loading indicator
-    with st.status("Signing you in...", expanded=False) as status:
+    with st.status("🔒 Signing you in...", expanded=False) as status:
         st.write("Authenticating credentials...")
         result = api_login(email, password)
-        
+
         if result["ok"]:
-            st.write("Loading your portal...")
+            st.write("✅ Loading your portal...")
             data = result["data"]
             st.session_state["token"] = data["access_token"]
             st.session_state["role"] = data["role"]
             st.session_state["user_id"] = data["user_id"]
             st.session_state["name"] = data["name"]
             st.session_state["email"] = data["email"]
-            status.update(label="Success! Redirecting...", state="complete")
+            status.update(label="✅ Success! Redirecting...", state="complete")
             time.sleep(0.4)
             st.rerun()
         else:
-            status.update(label="Login failed", state="error")
+            status.update(label="❌ Login failed", state="error")
             st.error(f"{result['data'].get('detail', 'Login failed')}")
 
 # ═══════════════════════════════════════════════════════════════
